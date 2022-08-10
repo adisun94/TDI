@@ -1,1 +1,1 @@
-# This reposotory contains files used for The Data Incubator challenge (Fall 2022).
+# This repository contains files used for The Data Incubator challenge (Fall 2022).
