@@ -4,4 +4,4 @@
 
 ## The 'apps' directory, index.py, app.py contain files to laucnch the interactive web app. The web app presents the same data as the TDI-capstone notebook; with slightly different visualizations.
 ### The app can be launched by copying the following code to the command line:
-###python3 index.py
+### python3 index.py
