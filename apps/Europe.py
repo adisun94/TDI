@@ -11,8 +11,6 @@ import seaborn as sns
 
 evdata=pd.read_json('/home/adisun/dash-app/EV/EV-sales-data/Europe-EV.json', orient='records')
 
-#app = Dash(__name__)
-
 layout = html.Div([
 
     html.Div(children=[
@@ -26,7 +24,7 @@ layout = html.Div([
             figure={}
             )
         ],
-        style={'padding': 10, 'flex': 1}),
+        style={'padding': 10, 'flex': 1, 'background-color' : 'rgb(255,255,240)'}),
 
     html.Div(children=[
         dcc.Dropdown(
@@ -38,10 +36,10 @@ layout = html.Div([
             figure={}
             )
         ], 
-        style={'padding': 10, 'flex': 1})
+        style={'padding': 10, 'flex': 1, 'background-color' : 'rgb(255,255,240)'})
 
     ],
-    style={'display': 'flex', 'flex-direction': 'row'})
+    style={'display': 'flex', 'flex-direction': 'row', 'background-color' : 'rgb(255,255,240)'})
 
 @app.callback(
     Output('europe_corrmap','figure'),
@@ -57,6 +55,7 @@ def update_output(hoverData):
             margin=dict(t=50, b=0,r=0,  l=0)
             )
     fig.update_layout(coloraxis_colorbar_x=0.8)
+    fig.update_layout({'paper_bgcolor': 'rgb(255,255,240)', 'plot_bgcolor': 'rgb(255,255,240)'})
 
     fig2 = go.Figure(data=px.scatter(
         x=evdata[hoverData['points'][0]['x']], 
@@ -65,27 +64,10 @@ def update_output(hoverData):
         )
         )
 
-
-    # Create x and y buttons
-   # x_buttons = []
-   # y_buttons = []
-
-   # for ncol,rcol in zip(evnumber.columns, evnumber.columns[::-1]):
-   #     x_buttons.append(dict(method='update',
-   #         label=ncol,
-   #         args=[{'x': [evnumber[ncol]],'color':'black'}]
-   #         )
-   #         )
-
-    #    y_buttons.append(dict(method='update',
-    #        label=ncol,
-    #        args=[{'y': [evnumber[ncol]]}]
-    #        )
-    #        )
-
-    # Pass buttons to the updatemenus argument
+    fig2.update_xaxes(title=hoverData['points'][0]['x'])
+    fig2.update_yaxes(title=hoverData['points'][0]['y'])
     fig2.update_layout(width=600,height=500)
-
+    fig2.update_layout({'paper_bgcolor': 'rgb(255,255,240)', 'plot_bgcolor': 'rgb(255,255,240)'})
 
     return fig, fig2
 
@@ -103,9 +85,9 @@ def update_y_timeseries(value):
             title_font=dict(size=16),
             margin=dict(t=50, b=0,r=0,  l=0),
             font=dict(size=14))
+    fig.update_layout({'paper_bgcolor': 'rgb(255,255,240)', 'plot_bgcolor': 'rgb(255,255,240)'})
 
     return fig
-
 
 if __name__ == '__main__':
     app.run_server(debug=True)

@@ -6,12 +6,13 @@ from app import app
 from app import server
 
 # Connect to your app pages
-from apps import USA, Europe
+from apps import USA, Europe, home
 
 
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     html.Div([
+        dcc.Link('Home                     |      ', href='/apps/home'),
         dcc.Link('EV sales in USA          |      ', href='/apps/USA'),
         dcc.Link('EV sales in Europe      |      ', href='/apps/Europe'),
         ], className="row"),
@@ -22,6 +23,8 @@ app.layout = html.Div([
 @app.callback(Output('page-content', 'children'),
         [Input('url', 'pathname')])
 def display_page(pathname):
+    if pathname == '/apps/home':
+        return home.layout
     if pathname == '/apps/USA':
         return USA.layout
     if pathname == '/apps/Europe':

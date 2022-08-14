@@ -19,19 +19,19 @@ layout = html.Div([
             hoverData={'points': [{'location': 'MI'}]}),       
         dcc.Slider(
             2000, 2022, 1,
-            value=2010,
+            value=2016,
             id='year',
             marks={i:{'label': str(i), 'style': {'color': '#77b0b1','font-size':'16px'}} for i in range(2000,2023,2)})
         ],
-        style={'padding': 10, 'flex': 1}),
+        style={'padding': 10, 'flex': 1, 'background-color' : 'rgb(255,255,240)'}),
 
     html.Div(children=[
         dcc.Graph(id='car-brand')
         ], 
-        style={'padding': 10, 'flex': 1})
+        style={'padding': 10, 'flex': 1, 'background-color' : 'rgb(255,255,240)'})
 
     ],
-    style={'display': 'flex', 'flex-direction': 'row'})
+    style={'display': 'flex', 'flex-direction': 'row', 'background-color' : 'rgb(255,255,240)'})
 
 @app.callback(
     Output('state_sales','figure'),
@@ -58,8 +58,9 @@ def update_output(value,hoverData):
             geo=dict(scope='usa'),
             width=700,
             height=600,
-            margin=dict(t=0, b=0,r=100,  l=0)
-            )
+            margin=dict(t=0, b=0,r=100,  l=0))
+    fig.update_layout({'paper_bgcolor': 'rgb(255,255,240)', 'plot_bgcolor': 'rgb(255,255,240)'})
+            
     fig.update_layout(coloraxis_colorbar_x=-0.1)
     return fig
 
@@ -75,8 +76,8 @@ def update_y_timeseries(hoverData,value):
     fig = px.histogram(n,x='Make', title="New vehicles registered in "+hoverData['points'][0]['location']+' in '+str(value)).update_xaxes(categoryorder='total descending')
 
     fig.update_layout(width=700,height=500,margin=dict(t=150, b=0,r=0,  l=0))
+    fig.update_layout({'paper_bgcolor': 'rgb(255,255,240)', 'plot_bgcolor': 'rgb(255,255,240)'})
     return fig
-
 
 if __name__ == '__main__':
     app.run_server(debug=True)
