@@ -18,21 +18,23 @@ layout = html.Div([
             id='europe_corrmap', 
             figure={},
             hoverData={'points':[{'x':'Battery(kWh)','y':'Battery(kWh)'}]}
-            ),       
-        dcc.Graph(
-            id='europe_pair',
-            figure={}
-            )
-        ],
-        style={'padding': 10, 'flex': 1, 'background-color' : 'rgb(255,255,240)'}),
-
-    html.Div(children=[
+            ),     
+        html.Br(),
+        html.Br(),
         dcc.Dropdown(
             evdata.columns[1:],'Make',
             id='europe_hist'
             ),
         dcc.Graph(
             id='hist_map',
+            figure={}
+            )
+        ],
+        style={'padding': 10, 'flex': 1, 'background-color' : 'rgb(255,255,240)'}),
+
+    html.Div(children=[
+        dcc.Graph(
+            id='europe_pair',
             figure={}
             )
         ], 
@@ -66,8 +68,8 @@ def update_output(hoverData):
 
     fig2.update_xaxes(title=hoverData['points'][0]['x'])
     fig2.update_yaxes(title=hoverData['points'][0]['y'])
-    fig2.update_layout(width=600,height=500)
-    fig2.update_layout({'paper_bgcolor': 'rgb(255,255,240)', 'plot_bgcolor': 'rgb(255,255,240)'})
+    fig2.update_layout(width=600,height=500,title='Data updates with hover position on the grid plot',title_x=0.5)
+    fig2.update_layout({'paper_bgcolor': 'rgb(255,255,240)', 'plot_bgcolor': 'rgb(200,200,240)'})
 
     return fig, fig2
 
