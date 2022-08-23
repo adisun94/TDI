@@ -7,3 +7,5 @@
 ### python3 index.py
 
 ## The TDI-capstone.html file can be opened in a web browser.
+
+https://user-images.githubusercontent.com/6877923/115474571-03c75800-a23e-11eb-8096-8973aad5fa9f.mp4
