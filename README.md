@@ -9,6 +9,5 @@
 ### The TDI-capstone.html file can be opened in a web browser.
 
 ## App demonstration
-<video width="320" height="240" controls>
-  <source src="Demo.mp4" type="video/mp4">
-</video>
+https://user-images.githubusercontent.com/43352171/186051107-40fa8f6d-4b05-4d43-8406-d75e35e5c7f4.mp4
+
