@@ -6,7 +6,7 @@
 ### The app can be launched by copying the following code to the command line:
 ### python3 index.py
 
-### The TDI-capstone.html file can be opened in a web browser.
+### The TDI-capstone.html file can be opened in a web browser, and contains a snapshot of the notebook..
 
 ## App demonstration
 https://user-images.githubusercontent.com/43352171/186051107-40fa8f6d-4b05-4d43-8406-d75e35e5c7f4.mp4
